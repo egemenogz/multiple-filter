@@ -1,0 +1,44 @@
+
+
+.App-header {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    width: auto;
+    height: 2.5rem;
+    border-radius: 4px;
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .header-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 2rem;
+    background-color: white;
+    border-radius: 45px 45px;
+  }
+  
+  .header-items i {
+    margin-right: 1px;
+  }
+  
+  .header-items input {
+    border: none;
+    box-shadow: none;
+    
+  }
+  
+  .header-items button {
+    margin: 0 10px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+  }
+
+  .header-items button:hover {
+    cursor: pointer;
+  }
