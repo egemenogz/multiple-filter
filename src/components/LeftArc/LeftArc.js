@@ -9,6 +9,7 @@ export default function LeftArc() {
       <div className="leftarc">
         <Adres />
         <Brand />
+        
         <div className="col-2"></div>
       </div>
     </section>

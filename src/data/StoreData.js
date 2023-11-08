@@ -6,7 +6,7 @@ class DataStore {
   filteredDataKey = data;
   searchValue = '';
   renk = [];
-  seri = [];
+  serial = [];
   il = [];
   fiyatMin = ' ';
   fiyatMaks = ' ';
@@ -33,7 +33,7 @@ class DataStore {
       setSearchValue: action,
       renk: observable,
       setRenk: action,
-      seri: observable,
+      serial: observable,
       setSeri: action,
       il: observable,
       setIl: action,
@@ -77,7 +77,7 @@ class DataStore {
     this.renk = newValue;
   }
   setSeri(newValue) {
-    this.seri = newValue;
+    this.serial = newValue;
   }
   setIl(newValue) {
     this.il = newValue;

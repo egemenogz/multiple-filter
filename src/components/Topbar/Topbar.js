@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faBrush } from "@fortawesome/free-solid-svg-icons";
 
 export default function Topbar() {
-
+  console.log()
   return (
     <header className="App-header">
       <div className="header-items">
         <input
           placeholder="search"
           value={dataStore.searchValue}
-          onChange={(event) => dataStore.setSearchValue(event.target.value)}
+          onChange={(e) => dataStore.setSearchValue(e.target.value)}
         />
         <button
           type="button"
