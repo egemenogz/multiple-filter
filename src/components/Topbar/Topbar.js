@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import {observer} from "mobx-react";
 import "./Topbar.css";
 import data from "../../data/Data";
 import { dataStore } from "../../data/StoreData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faBrush } from "@fortawesome/free-solid-svg-icons";
 
-export default function Topbar() {
-  console.log()
+const Topbar = observer(()=> {
+  useEffect(()=> {
+    console.log("Search value:", dataStore.searchValue);
+    console.log("Filtered Data:", dataStore.filteredData);
+    console.log("Filtered Data Key:", dataStore.filteredDataKey);
+  },[dataStore.searchValue, dataStore.filteredData, dataStore.filteredDataKey]); 
+  
   return (
     <header className="App-header">
       <div className="header-items">
@@ -56,4 +62,6 @@ export default function Topbar() {
       </div>
     </header>
   );
-}
+});
+
+export default Topbar;

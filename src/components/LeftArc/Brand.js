@@ -14,10 +14,6 @@ const Brand = () => {
   const brands = data.map((o) => o.brand);
   const serials = data.map((o) => o.serial);
 
-  console.log("dataStore.serial:", dataStore.serial);
-  console.log("brands:", brands);
-  console.log("serials:", serials);
-
   const onClick = (data) => {
     if (dataStore.serial && dataStore.serial?.includes(data)) {
       dataStore.setSeri(dataStore.serial.filter((item) => item !== data));
