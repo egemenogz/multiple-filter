@@ -8,7 +8,7 @@ export default function ComboBox() {
   const [dataStore, setDataStore] = useState({ il: [] });
 
   const onClick = (data) => {
-    
+    console.log(data);
     if (dataStore.il.some((item) => item === data)) {
       setDataStore({ ...dataStore, il: dataStore.il.filter((item) => item !== data) });
     } else {

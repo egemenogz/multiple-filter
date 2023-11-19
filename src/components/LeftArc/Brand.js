@@ -15,7 +15,7 @@ const Brand = () => {
   const serials = data.map((o) => o.serial);
 
   const onClick = (data) => {
-    if (dataStore.serial && dataStore.serial?.includes(data)) {
+    if (dataStore.serial.includes((item) => item === data)) {
       dataStore.setSeri(dataStore.serial.filter((item) => item !== data));
     } else {
       dataStore.setSeri([...dataStore.serial, data]);
@@ -23,7 +23,7 @@ const Brand = () => {
   };
 
   const brandDuplicateFilter = data.filter(function (o, index) {
-    return !brands?.includes(o.brand, index + 1);
+    return !brands.includes(o.brand, index + 1);
   });
 
   const serialDuplicateFilter = data.filter(function (o, index) {
@@ -31,31 +31,36 @@ const Brand = () => {
   });
 
   return (
-    <TableContainer sx={{ marginBottom: "3px" }} component={Paper}>
+    <TableContainer sx={{ marginTop: "3px" }} component={Paper}>
       <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">brand / serial</TableCell>
-          </TableRow>
+        <TableHead sx={{ backgroundColor: "black"}}>
+          
+            <TableCell
+              sx={{ color: "white" }}
+              
+            >
+              Brand / Serial
+            </TableCell>
+          
         </TableHead>
         <TableBody>
-          {brandDuplicateFilter.map((city) => (
+          {brandDuplicateFilter.map((data) => (
             <TableRow
-              key={city.km}
+              key={data.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell style={{ paddingTop: 10 }} align="center">
-                {city.brand}
+                {data.brand}
               </TableCell>
               <TableCell>
                 {serialDuplicateFilter.map((x) =>
-                  x.brand === city.brand ? (
+                  x.brand === data.brand ? (
                     <div
                       key={x.km}
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <Checkbox
-                        checked={dataStore.serial.includes(x.serial)}
+                        checked={dataStore.serial?.includes(x.serial)}
                         onChange={() => {
                           onClick(x.serial);
                         }}

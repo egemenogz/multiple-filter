@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+// import { useEffect } from "react";
 import {observer} from "mobx-react";
 import "./Topbar.css";
 import data from "../../data/Data";
@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faBrush } from "@fortawesome/free-solid-svg-icons";
 
 const Topbar = observer(()=> {
-  useEffect(()=> {
-    console.log("Search value:", dataStore.searchValue);
-    console.log("Filtered Data:", dataStore.filteredData);
-    console.log("Filtered Data Key:", dataStore.filteredDataKey);
-  },[dataStore.searchValue, dataStore.filteredData, dataStore.filteredDataKey]); 
+  // useEffect(()=> {
+  //   console.log("Search value:", dataStore.searchValue);
+  //   console.log("Filtered Data:", dataStore.filteredData);
+  //   console.log("Filtered Data Key:", dataStore.filteredDataKey);
+  // },[dataStore.searchValue, dataStore.filteredData, dataStore.filteredDataKey]); 
   
   return (
     <header className="App-header">

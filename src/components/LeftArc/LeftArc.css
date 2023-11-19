@@ -5,3 +5,9 @@ border: 1px solid black;
 border-radius: 18px;
 }
 
+.col-2 .button {
+    display: flex;
+    padding: 18px;
+    align-items: center;
+    justify-content: center;
+}

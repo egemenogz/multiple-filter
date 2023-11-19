@@ -5,7 +5,7 @@ class DataStore {
   filteredData = data;
   filteredDataKey = data;
   searchValue = '';
-  renk = [];
+  color = [];
   serial = [];
   il = [];
   fiyatMin = ' ';
@@ -31,8 +31,8 @@ class DataStore {
       setFilteredDataKey: action,
       searchValue: observable,
       setSearchValue: action,
-      renk: observable,
-      setRenk: action,
+      color: observable,
+      setColor: action,
       serial: observable,
       setSeri: action,
       il: observable,
@@ -73,8 +73,8 @@ class DataStore {
   setSearchValue(newValue) {
     this.searchValue = newValue;
   }
-  setRenk(newValue) {
-    this.renk = newValue;
+  setColor(newValue) {
+    this.color = newValue;
   }
   setSeri(newValue) {
     this.serial = newValue;
