@@ -33,15 +33,8 @@ const Brand = () => {
   return (
     <TableContainer sx={{ marginTop: "3px" }} component={Paper}>
       <Table aria-label="simple table">
-        <TableHead sx={{ backgroundColor: "black"}}>
-          
-            <TableCell
-              sx={{ color: "white" }}
-              
-            >
-              Brand / Serial
-            </TableCell>
-          
+        <TableHead sx={{ backgroundColor: "black" }}>
+          <TableCell sx={{ color: "white" }}>Brand/Serial</TableCell>
         </TableHead>
         <TableBody>
           {brandDuplicateFilter.map((data) => (

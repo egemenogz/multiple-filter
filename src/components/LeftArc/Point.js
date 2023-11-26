@@ -1,6 +1,5 @@
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
@@ -9,6 +8,7 @@ import React from "react";
 import { dataStore } from "../../data/StoreData";
 
 export default function Point() {
+  
   return (
     <TableContainer
       sx={{
@@ -24,20 +24,33 @@ export default function Point() {
         </TableRow>
       </TableHead>
       <TableBody>
-        <div>
+        <div style={{display:"flex"}}>
           <input
-            type="text"
+            style={{
+              width: "47%",
+              margin: "4px 4px",
+              borderRadius: "4px",
+              borderColor: "lightgrey",
+            }}
+            type="number"
             placeholder="Min"
             value={dataStore.puanMin}
             onChange={(e) => dataStore.setPuanMin(e.target.value)}
           />{" "}
-          -
+          .
           <input
-            type="text"
+            style={{
+              width: "47%",
+              margin: "4px 4px",
+              borderRadius: "4px",
+              borderColor: "lightgrey",
+            }}
+            type="number"
             placeholder="Max"
             value={dataStore.puanMaks}
             onChange={(e) => dataStore.setPuanMaks(e.target.value)}
           />
+          
         </div>
       </TableBody>
     </TableContainer>
