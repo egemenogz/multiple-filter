@@ -1,7 +1,6 @@
-import React from "react";
+import { dataStore } from "../../data/StoreData";
 import "./RightArc.css";
-import data from "../../data/Data";
-import { Observer } from "mobx-react";
+import { observer } from "mobx-react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,7 +9,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const RightArc = Observer((props)=> {
+
+const RightArc = observer(() => {
 
   return (
     <TableContainer component={Paper}>
@@ -33,31 +33,35 @@ const RightArc = Observer((props)=> {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((data) => (
+          {dataStore.filteredData.map((item) => (
             <TableRow
-              key={data.id}
+              key={item.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                <img style={{ width: 100, padding: 5 }} src={data.imgUrl} alt="" />
+                <img
+                  style={{ width: 100, padding: 5 }}
+                  src={item.imgUrl}
+                  alt=""
+                />
               </TableCell>
-              <TableCell align="right">{data.brand}</TableCell>
-              <TableCell align="right">{data.serial}</TableCell>
-              <TableCell align="right">{data.model}</TableCell>
-              <TableCell align="right">{data.point}</TableCell>
-              <TableCell align="right">{data.year}</TableCell>
-              <TableCell align="right">{data.motorHacmi}</TableCell>
-              <TableCell align="right">{data.motor}</TableCell>
-              <TableCell align="right">{data.km}</TableCell>
-              <TableCell align="right">{data.color}</TableCell>
-              <TableCell align="right">{data.price}</TableCell>
-              <TableCell align="right">{data.city}</TableCell>
-              <TableCell align="right">{data.area}</TableCell>
+              <TableCell align="right">{item.brand}</TableCell>
+              <TableCell align="right">{item.serial}</TableCell>
+              <TableCell align="right">{item.model}</TableCell>
+              <TableCell align="right">{item.point}</TableCell>
+              <TableCell align="right">{item.year}</TableCell>
+              <TableCell align="right">{item.motorHacmi}</TableCell>
+              <TableCell align="right">{item.motor}</TableCell>
+              <TableCell align="right">{item.km}</TableCell>
+              <TableCell align="right">{item.color}</TableCell>
+              <TableCell align="right">{item.price}</TableCell>
+              <TableCell align="right">{item.city}</TableCell>
+              <TableCell align="right">{item.area}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}) 
-export default React.memo(RightArc);
+});
+export default RightArc;

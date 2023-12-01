@@ -1,30 +1,25 @@
 // import { useEffect } from "react";
-import {observer} from "mobx-react";
+import { observer } from "mobx-react";
 import "./Topbar.css";
 import data from "../../data/Data";
 import { dataStore } from "../../data/StoreData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faBrush } from "@fortawesome/free-solid-svg-icons";
 
-const Topbar = observer(()=> {
+const Topbar = observer(() => {
   // useEffect(()=> {
   //   console.log("Search value:", dataStore.searchValue);
   //   console.log("Filtered Data:", dataStore.filteredData);
   //   console.log("Filtered Data Key:", dataStore.filteredDataKey);
-  // },[dataStore.searchValue, dataStore.filteredData, dataStore.filteredDataKey]); 
-  
+  // },[dataStore.searchValue, dataStore.filteredData, dataStore.filteredDataKey]);
+
   return (
     <header className="App-header">
       <div className="header-items">
-        <input
-          placeholder="search"
-          value={dataStore.searchValue}
-          onChange={(e) => dataStore.setSearchValue(e.target.value)}
-        />
-        <button
-          type="button"
-          className="search"
-          onClick={() => {
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            
             const filteredData = data.filter(
               (item) =>
                 item.brand
@@ -42,17 +37,28 @@ const Topbar = observer(()=> {
             dataStore.setFilteredData(filteredData);
           }}
         >
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            size="lg"
-            style={{ color: "#000000" }}
+          <input
+            placeholder="search"
+            value={dataStore.searchValue}
+            onChange={(e) => dataStore.setSearchValue(e.target.value)}
           />
-        </button>
-        <button type="button" className="clear" onClick={()=> {
-          dataStore.setFilteredDataKey(data);
-          dataStore.setFilteredData(data);
-          dataStore.setSearchValue('');
-        }}>
+          <button type="submit" className="search">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              size="lg"
+              style={{ color: "#000000" }}
+            />
+          </button>
+        </form>
+        <button
+          type="button"
+          className="clear"
+          onClick={() => {
+            dataStore.setFilteredDataKey(data);
+            dataStore.setFilteredData(data);
+            dataStore.setSearchValue("");
+          }}
+        >
           <FontAwesomeIcon
             icon={faBrush}
             size="lg"

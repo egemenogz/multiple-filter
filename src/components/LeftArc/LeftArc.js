@@ -7,6 +7,7 @@ import Point from "./Point";
 import searchButton from "../../data/SearchButton";
 import Button from "@mui/material/Button";
 
+
 export default function LeftArc() {
   return (
     <section>
@@ -17,7 +18,14 @@ export default function LeftArc() {
           <Color />
           <Point />
           <div className="button">
-            <Button variant="contained" sx={{ backgroundColor: "black" }}>
+            <Button
+              variant="contained"
+              sx={{ backgroundColor: "black" }}
+              type="button"
+              onClick={() => {
+                searchButton();
+              }}
+            >
               Search
             </Button>
           </div>

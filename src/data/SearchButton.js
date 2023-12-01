@@ -35,3 +35,5 @@ export const searchButton = () => {
 
   dataStore.setFilteredData(filteredArray);
 };
+
+export default searchButton;
