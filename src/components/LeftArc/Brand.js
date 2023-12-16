@@ -7,26 +7,26 @@ import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Checkbox from "@mui/material/Checkbox";
-import data from "../../data/Data";
+import datas from "../../data/Data";
 import { dataStore } from "../../data/StoreData";
 
 const Brand = () => {
-  const brands = data.map((o) => o.brand);
-  const serials = data.map((o) => o.serial);
+  const brands = datas.map((o) => o.brand);
+  const serials = datas.map((o) => o.serial);
 
-  const onClick = (data) => {
-    if (dataStore.serial.includes((item) => item === data)) {
-      dataStore.setSeri(dataStore.serial.filter((item) => item !== data));
+  const onClick = (datas) => {
+    if (dataStore.serial.includes((item) => item === datas)) {
+      dataStore.setSeri(dataStore.serial.filter((item) => item !== datas));
     } else {
-      dataStore.setSeri([...dataStore.serial, data]);
+      dataStore.setSeri([...dataStore.serial, datas]);
     }
   };
 
-  const brandDuplicateFilter = data.filter(function (o, index) {
+  const brandDuplicateFilter = datas.filter(function (o, index) {
     return !brands.includes(o.brand, index + 1);
   });
 
-  const serialDuplicateFilter = data.filter(function (o, index) {
+  const serialDuplicateFilter = datas.filter(function (o, index) {
     return !serials?.includes(o.serial, index + 1);
   });
 
@@ -37,17 +37,17 @@ const Brand = () => {
           <TableCell sx={{ color: "white" }}>Brand/Serial</TableCell>
         </TableHead>
         <TableBody>
-          {brandDuplicateFilter.map((data) => (
+          {brandDuplicateFilter.map((datas) => (
             <TableRow
-              key={data.id}
+              key={datas.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell style={{ paddingTop: 10 }} align="center">
-                {data.brand}
+                {datas.brand}
               </TableCell>
               <TableCell>
                 {serialDuplicateFilter.map((x) =>
-                  x.brand === data.brand ? (
+                  x.brand === datas.brand ? (
                     <div
                       key={x.km}
                       style={{ display: "flex", alignItems: "center" }}

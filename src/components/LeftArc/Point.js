@@ -8,7 +8,6 @@ import React from "react";
 import { dataStore } from "../../data/StoreData";
 
 export default function Point() {
-  
   return (
     <TableContainer
       sx={{
@@ -24,7 +23,7 @@ export default function Point() {
         </TableRow>
       </TableHead>
       <TableBody>
-        <div style={{display:"flex"}}>
+        <div id="pointer" style={{ display: "flex" }}>
           <input
             style={{
               width: "47%",
@@ -50,7 +49,6 @@ export default function Point() {
             value={dataStore.puanMaks}
             onChange={(e) => dataStore.setPuanMaks(e.target.value)}
           />
-          
         </div>
       </TableBody>
     </TableContainer>

@@ -12,8 +12,12 @@ import Paper from "@mui/material/Paper";
 
 const RightArc = observer(() => {
 
+  const hasSearchPerformed = dataStore.filteredData.length > 0;
+
   return (
     <TableContainer component={Paper}>
+      {hasSearchPerformed ? (
+
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -61,6 +65,9 @@ const RightArc = observer(() => {
           ))}
         </TableBody>
       </Table>
+      ) : (
+        <p>No result found! Please check search again.</p>
+      )}
     </TableContainer>
   );
 });

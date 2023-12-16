@@ -6,26 +6,25 @@ import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Checkbox from "@mui/material/Checkbox";
-
-
 import data from "../../data/Data";
 import { dataStore } from "../../data/StoreData";
 
-export default function colors() {
-  
-  const onClick = (data) => {
-    if (dataStore.color.includes(data)) {
-      dataStore.setColor(dataStore.color.filter((item) => item !== data));
+export default function Colors() {
+
+  const onClick = (datas) => {
+    if (dataStore.color.includes(datas)) {
+      dataStore.setColor(dataStore.color.filter((item) => item !== datas));
     } else {
-      dataStore.setColor([...dataStore.color, data]);
+      dataStore.setColor([...dataStore.color, datas]);
     }
   };
 
-  const colors = data.map((x) => x.color);  
+  const colors = data.map((x) => x.color);
 
-  const colorDublicateFilter = data.filter(
+  const colorDuplicateFilter = data.filter(
     (x, index) => !colors.includes(x.color, index + 1)
   );
+  
   return (
     <div>
       <TableContainer sx={{ marginTop: "3px" }} component={Paper}>
@@ -38,17 +37,14 @@ export default function colors() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {colorDublicateFilter.map((data) => (
-              
-              <TableRow>
-                <TableCell sx={{ paddingLeft: "10px" }} key={data.id}>
+            {colorDuplicateFilter.map((datas) => (
+              <TableRow key={datas.id}>
+                <TableCell sx={{ paddingLeft: "10px" }} key={datas.id}>
                   <Checkbox
-                    checked={dataStore.color.includes(data.color)}
-                    onChange={() => {
-                      onClick(data.color);
-                    }}
+                    checked={dataStore.color.includes(datas.color)}
+                    onChange={() => onClick(datas.color)} 
                   />
-                  {data.color}
+                  {datas.color}
                 </TableCell>
               </TableRow>
             ))}
