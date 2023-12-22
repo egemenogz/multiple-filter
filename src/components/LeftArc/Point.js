@@ -35,7 +35,7 @@ export default function Point() {
             placeholder="Min"
             value={dataStore.puanMin}
             onChange={(e) => dataStore.setPuanMin(e.target.value)}
-          />{" "}
+          />
           .
           <input
             style={{

@@ -11,7 +11,7 @@ import { dataStore } from "../../data/StoreData";
 
 export default function Colors() {
 
-  const onClick = (datas) => {
+  const handleClick = (datas) => {
     if (dataStore.color.includes(datas)) {
       dataStore.setColor(dataStore.color.filter((item) => item !== datas));
     } else {
@@ -42,7 +42,7 @@ export default function Colors() {
                 <TableCell sx={{ paddingLeft: "10px" }} key={datas.id}>
                   <Checkbox
                     checked={dataStore.color.includes(datas.color)}
-                    onChange={() => onClick(datas.color)} 
+                    onClick={() => handleClick(datas.color)} 
                   />
                   {datas.color}
                 </TableCell>

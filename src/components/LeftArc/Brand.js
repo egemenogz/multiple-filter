@@ -11,23 +11,23 @@ import datas from "../../data/Data";
 import { dataStore } from "../../data/StoreData";
 
 const Brand = () => {
-  const brands = datas.map((o) => o.brand);
-  const serials = datas.map((o) => o.serial);
+  const brands = datas.map((e) => e.brand);
+  const serials = datas.map((e) => e.serial);
 
-  const onClick = (datas) => {
+  const handleClick = (datas) => {
     if (dataStore.serial.includes((item) => item === datas)) {
       dataStore.setSeri(dataStore.serial.filter((item) => item !== datas));
     } else {
       dataStore.setSeri([...dataStore.serial, datas]);
-    }
+    } 
   };
 
-  const brandDuplicateFilter = datas.filter(function (o, index) {
-    return !brands.includes(o.brand, index + 1);
+  const brandDuplicateFilter = datas.filter(function (e, index) {
+    return !brands.includes(e.brand, index + 1);
   });
 
-  const serialDuplicateFilter = datas.filter(function (o, index) {
-    return !serials?.includes(o.serial, index + 1);
+  const serialDuplicateFilter = datas.filter(function (e, index) {
+    return !serials?.includes(e.serial, index + 1);
   });
 
   return (
@@ -46,20 +46,18 @@ const Brand = () => {
                 {datas.brand}
               </TableCell>
               <TableCell>
-                {serialDuplicateFilter.map((x) =>
-                  x.brand === datas.brand ? (
+                {serialDuplicateFilter.map((e) =>
+                  e.brand === datas.brand ? (
                     <div
-                      key={x.km}
+                      key={e.km}
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <Checkbox
-                        checked={dataStore.serial?.includes(x.serial)}
-                        onChange={() => {
-                          onClick(x.serial);
-                        }}
+                        checked={dataStore.serial?.includes(dataStore.serial)}
+                        onClick={() =>handleClick(e.serial)}                        
                         inputProps={{ "aria-label": "controlled" }}
                       />
-                      {x.serial}
+                      {e.serial}
                     </div>
                   ) : null
                 )}
